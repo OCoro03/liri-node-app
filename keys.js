@@ -7,4 +7,7 @@ exports.spotify = {
 exports.concert = {
   concertAPI: process.env.CONCERT_ID
 }
+exports.omdb = {
+  omdbAPI: process.env.OMDB
+}
 
