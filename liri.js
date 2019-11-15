@@ -25,7 +25,7 @@ function userCommand(userThis, userInput) {
         case "movie-this":
             movieThis();
             break;
-        case "do-this":
+        case "do-what-it-says":
             doWhatItSays();
             break;
         default:
@@ -70,7 +70,7 @@ function spotifyThisSong() {
     console.log(`\n - - - - - - - - - - - - - - -\n\nSearching For..."${userInput}"`);
     if (userInput === undefined) { userInput = " No luck... Here's The Sign by Ace of Base" }
 
-    spotify.search({ type: "track", input: userInput, limit: 1 }, function (err, data) {
+    spotify.search({ type: "track", query: userInput, limit: 1 }, function (err, data) {
         if (err) { throw err }
         //console.log(data.tracks.items[0])
 
@@ -124,15 +124,16 @@ function movieThis() {
 
 function doWhatItSays() {
     fs.readFile("random.txt", "utf-8", function (err, data) {
-        if (err) console.log(err);
-
-        var dataArr = data.split(",");
-
-        userThis = dataArr[0];
+        if (err) 
+        
+        var dataArr = data
+        
+        userThis = dataArr;
         userInput = dataArr[1];
-
+        
         userCommand(userThis, userInput);
     })
+    // console.lo g(err);
 }
 
 // var movie = "";
